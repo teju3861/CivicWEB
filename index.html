@@ -1,215 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Civic Issues - Web</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* same CSS as your current code */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-    body { background: #f9fafb; color: #333; line-height: 1.6; }
-    header, footer { background: #2563eb; color: white; text-align: center; padding: 1rem 2rem; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
-    header h1 { margin-bottom: 0.3rem; font-size: 1.8rem; }
-    header p { margin: 0; font-size: 1rem; color: #e0e7ff; }
-    footer p { font-size: 0.9rem; }
-    main { display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; padding: 1.5rem; max-width: 1200px; margin: auto; }
-    section { background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.08); }
-    h2 { margin-bottom: 1rem; color: #2563eb; }
-    input, textarea, select, button { width: 100%; margin-bottom: .8rem; padding: .8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border 0.3s, box-shadow 0.3s; }
-    input:focus, textarea:focus, select:focus { outline: none; border: 1px solid #2563eb; box-shadow: 0 0 6px rgba(37, 99, 235, 0.3); }
-    button { background: #2563eb; color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s, transform 0.2s; }
-    button:hover { background: #1e40af; transform: translateY(-2px); }
-    .issue { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #eee; align-items: flex-start; }
-    .issue img { width: 100px; height: 70px; object-fit: cover; border-radius: 6px; background: #ddd; flex-shrink: 0; }
-    .issue h4 { margin: 0 0 .4rem; font-size: 1.1rem; color: #111; }
-    .issue p { margin: 0 0 .4rem; font-size: 0.95rem; }
-    .status { font-size: .8rem; padding: .25rem .6rem; border-radius: 12px; background: #e0e7ff; color: #2563eb; font-weight: 500; }
-    .actions { margin-top: .5rem; }
-    .actions button { margin-right: .5rem; width: auto; padding: .5rem .9rem; border-radius: 6px; font-size: 0.9rem; }
-    .actions button:nth-child(1) { background: #f59e0b; } .actions button:nth-child(1):hover { background: #d97706; }
-    .actions button:nth-child(2) { background: #10b981; } .actions button:nth-child(2):hover { background: #059669; }
-    .actions button:nth-child(3) { background: #dc3545; } .actions button:nth-child(3):hover { background: #b91c1c; }
-    iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-top: 1rem; }
-    @media (max-width: 768px) { main { grid-template-columns: 1fr; } }
-  </style>
+<meta charset="UTF-8">
+<title>Civic Issues - Web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* same CSS as your previous code */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+  body { background:#f9fafb; color:#333; line-height:1.6; }
+  header, footer { background:#2563eb; color:white; text-align:center; padding:1rem 2rem; box-shadow:0 2px 6px rgba(0,0,0,.15); }
+  header h1 { margin-bottom:0.3rem; font-size:1.8rem; }
+  header p { margin:0; font-size:1rem; color:#e0e7ff; }
+  footer p { font-size:0.9rem; }
+  main { display:grid; grid-template-columns:1fr 2fr; gap:1.5rem; padding:1.5rem; max-width:1200px; margin:auto; }
+  section { background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.08); }
+  h2 { margin-bottom:1rem; color:#2563eb; }
+  input, textarea, select, button { width:100%; margin-bottom:.8rem; padding:.8rem; border:1px solid #ddd; border-radius:8px; font-size:1rem; transition:border 0.3s, box-shadow 0.3s; }
+  input:focus, textarea:focus, select:focus { outline:none; border:1px solid #2563eb; box-shadow:0 0 6px rgba(37,99,235,.3); }
+  button { background:#2563eb; color:white; border:none; font-weight:bold; cursor:pointer; transition:background 0.3s, transform 0.2s; }
+  button:hover { background:#1e40af; transform:translateY(-2px); }
+  .issue { display:flex; gap:1rem; padding:1rem 0; border-bottom:1px solid #eee; align-items:flex-start; }
+  .issue img { width:100px; height:70px; object-fit:cover; border-radius:6px; background:#ddd; flex-shrink:0; }
+  .issue h4 { margin:0 0 .4rem; font-size:1.1rem; color:#111; }
+  .issue p { margin:0 0 .4rem; font-size:0.95rem; }
+  .status { font-size:.8rem; padding:.25rem .6rem; border-radius:12px; background:#e0e7ff; color:#2563eb; font-weight:500; }
+  .actions { margin-top:.5rem; }
+  .actions button { margin-right:.5rem; width:auto; padding:.5rem .9rem; border-radius:6px; font-size:0.9rem; }
+  .actions button:nth-child(1) { background:#f59e0b; } .actions button:nth-child(1):hover { background:#d97706; }
+  .actions button:nth-child(2) { background:#10b981; } .actions button:nth-child(2):hover { background:#059669; }
+  .actions button:nth-child(3) { background:#dc3545; } .actions button:nth-child(3):hover { background:#b91c1c; }
+  iframe { width:100%; height:250px; border:none; border-radius:10px; margin-top:1rem; }
+  @media (max-width:768px) { main { grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Civic Issues — Web</h1>
-    <p>Report local problems quickly</p>
-  </header>
+<header>
+  <h1>Civic Issues — Web</h1>
+  <p>Report local problems quickly</p>
+</header>
+<main>
+  <section>
+    <h2>Report an Issue</h2>
+    <input id="title" placeholder="Title">
+    <textarea id="description" placeholder="Describe the issue"></textarea>
+    <select id="category">
+      <option>Pothole</option>
+      <option>Streetlight</option>
+      <option>Sanitation</option>
+      <option>Water</option>
+      <option>Traffic</option>
+      <option>Other</option>
+    </select>
+    <input type="file" id="image">
+    <button onclick="addIssue()">Report</button>
+    <p id="gpsInfo">Detecting GPS...</p>
+    <img id="preview" style="display:none; width:100%; margin-top:5px; border-radius:5px;">
+  </section>
 
-  <main>
-    <!-- Form -->
-    <section>
-      <h2>Report an Issue</h2>
-      <input id="title" placeholder="Title">
-      <textarea id="description" placeholder="Describe the issue"></textarea>
-      <select id="category">
-        <option>Pothole</option>
-        <option>Streetlight</option>
-        <option>Sanitation</option>
-        <option>Water</option>
-        <option>Traffic</option>
-        <option>Other</option>
-      </select>
-      <input type="file" id="image">
-      <button onclick="addIssue()">Report</button>
-      <p id="gpsInfo">Detecting GPS...</p>
-      <img id="preview" style="display:none; width:100%; margin-top:5px; border-radius:5px;">
-    </section>
+  <section>
+    <h2>Reported Issues</h2>
+    <select id="filter" onchange="renderIssues()">
+      <option value="all">All</option>
+      <option>Reported</option>
+      <option>Acknowledged</option>
+      <option>In Progress</option>
+      <option>Resolved</option>
+    </select>
+    <div id="issues"></div>
 
-    <!-- Issue List -->
-    <section>
-      <h2>Reported Issues</h2>
-      <select id="filter" onchange="renderIssues()">
-        <option value="all">All</option>
-        <option>Reported</option>
-        <option>Acknowledged</option>
-        <option>In Progress</option>
-        <option>Resolved</option>
-      </select>
-      <div id="issues"></div>
+    <h3 style="margin-top:1.5rem; color:#2563eb;">Map Preview</h3>
+    <iframe id="mapFrame"></iframe>
+  </section>
+</main>
+<footer>
+  <p>Prototype — now synced with Firebase!</p>
+</footer>
 
-      <h3 style="margin-top:1.5rem; color:#2563eb;">Map Preview</h3>
-      <iframe id="mapFrame"></iframe>
-    </section>
-  </main>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
 
-  <footer>
-    <p>Prototype — now synced with Firebase!</p>
-  </footer>
+const firebaseConfig = {
+  apiKey: "AIzaSyDAS6ybtpeNMiYYw72mAHruV6x8d9h90NM",
+  authDomain: "civic-web-ee739.firebaseapp.com",
+  projectId: "civic-web-ee739",
+  storageBucket: "civic-web-ee739.appspot.com",
+  messagingSenderId: "70528701862",
+  appId: "1:70528701862:web:8e53256ea3cb22000c6b67"
+};
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js"></script>
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-  <script>
-    // Firebase config
-    const firebaseConfig = {
-      apiKey: "AIzaSyDAS6ybtpeNMiYYw72mAHruV6x8d9h90NM",
-      authDomain: "civic-web-ee739.firebaseapp.com",
-      projectId: "civic-web-ee739",
-      storageBucket: "civic-web-ee739.appspot.com",
-      messagingSenderId: "70528701862",
-      appId: "1:70528701862:web:8e53256ea3cb22000c6b67"
-    };
+let gps = null;
+let previewImage = null;
 
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const storage = firebase.storage();
+// ===== LocalStorage migration START =====
+const localIssues = JSON.parse(localStorage.getItem("ci_issues") || "[]");
 
-    let gps = null;
-    let previewImage = null;
+localIssues.forEach(async issue => {
+  await addDoc(collection(db, "issues"), {
+    title: issue.title,
+    description: issue.description,
+    category: issue.category,
+    status: issue.status,
+    gps: issue.gps || null,
+    image: issue.image || "",
+    createdAt: new Date(issue.createdAt)
+  });
+});
 
-    navigator.geolocation.getCurrentPosition(pos => {
-      gps = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      document.getElementById("gpsInfo").innerText = 
-        `GPS: ${gps.lat.toFixed(5)}, ${gps.lng.toFixed(5)}`;
-      updateMap(gps.lat, gps.lng);
+// optionally clear localStorage after migration
+localStorage.removeItem("ci_issues");
+// ===== LocalStorage migration END =====
+
+navigator.geolocation.getCurrentPosition(pos => {
+  gps = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+  document.getElementById("gpsInfo").innerText = `GPS: ${gps.lat.toFixed(5)}, ${gps.lng.toFixed(5)}`;
+  updateMap(gps.lat, gps.lng);
+});
+
+document.getElementById("image").addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (file) {
+    previewImage = file;
+    const url = URL.createObjectURL(file);
+    const prev = document.getElementById("preview");
+    prev.src = url; prev.style.display = "block";
+  }
+});
+
+async function addIssue() {
+  const title = document.getElementById("title").value.trim();
+  if (!title) return alert("Add a title");
+  const desc = document.getElementById("description").value.trim();
+  const cat = document.getElementById("category").value;
+
+  let imageUrl = "";
+  if (previewImage) {
+    const imgRef = storageRef(storage, "issues/" + Date.now() + "_" + previewImage.name);
+    await uploadBytes(imgRef, previewImage);
+    imageUrl = await getDownloadURL(imgRef);
+  }
+
+  await addDoc(collection(db, "issues"), {
+    title, description: desc, category: cat,
+    status: "Reported", gps, image: imageUrl, createdAt: new Date()
+  });
+
+  document.getElementById("title").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("image").value = "";
+  document.getElementById("preview").style.display = "none";
+  previewImage = null;
+}
+
+function updateMap(lat, lng) {
+  if (!lat || !lng) return;
+  document.getElementById("mapFrame").src =
+    `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.02}%2C${lat-0.02}%2C${lng+0.02}%2C${lat+0.02}&layer=mapnik&marker=${lat}%2C${lng}`;
+}
+
+function openMap(lat,lng) {
+  window.open(`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=18/${lat}/${lng}`);
+}
+
+function renderIssues(filter="all") {
+  const wrap = document.getElementById("issues");
+  wrap.innerHTML = "";
+  const q = query(collection(db,"issues"), orderBy("createdAt","desc"));
+  getDocs(q).then(snapshot => {
+    snapshot.forEach(docSnap => {
+      const it = docSnap.data();
+      if(filter !== "all" && it.status !== filter) return;
+      const div = document.createElement("div");
+      div.className = "issue";
+      div.innerHTML = `
+        ${it.image ? `<img src="${it.image}">` : `<div style='width:100px;height:70px;background:#eee;border-radius:5px'></div>`}
+        <div style="flex:1">
+          <h4>${it.title}</h4>
+          <p>${it.description}</p>
+          <div><span class='status'>${it.status}</span> • ${it.category}</div>
+          <div class='actions'>
+            <button onclick="advanceStatus('${docSnap.id}','${it.status}')">Advance</button>
+            <button onclick="${it.gps ? `openMap(${it.gps.lat},${it.gps.lng})` : `alert('No GPS')`}">Map</button>
+            <button onclick="deleteIssue('${docSnap.id}')">Delete</button>
+          </div>
+        </div>
+      `;
+      wrap.appendChild(div);
     });
+  });
+}
 
-    document.getElementById("image").addEventListener("change", e => {
-      const file = e.target.files[0];
-      if (file) {
-        previewImage = file;
-        const url = URL.createObjectURL(file);
-        const prev = document.getElementById("preview");
-        prev.src = url; prev.style.display = "block";
-      }
-    });
+async function advanceStatus(id,current){
+  let newStatus = current;
+  if(current==="Reported") newStatus="Acknowledged";
+  else if(current==="Acknowledged") newStatus="In Progress";
+  else if(current==="In Progress") newStatus="Resolved";
+  await updateDoc(doc(db,"issues",id),{status:newStatus});
+  renderIssues();
+}
 
-    async function addIssue() {
-      const title = document.getElementById("title").value.trim();
-      if (!title) return alert("Add a title");
-      const desc = document.getElementById("description").value.trim();
-      const cat = document.getElementById("category").value;
+async function deleteIssue(id){
+  if(!confirm("Delete this report?")) return;
+  await deleteDoc(doc(db,"issues",id));
+  renderIssues();
+}
 
-      let imageUrl = "";
-      if (previewImage) {
-        const storageRef = storage.ref().child("issues/" + Date.now() + "_" + previewImage.name);
-        await storageRef.put(previewImage);
-        imageUrl = await storageRef.getDownloadURL();
-      }
+// Live update
+onSnapshot(query(collection(db,"issues"),orderBy("createdAt","desc")), renderIssues);
 
-      await db.collection("issues").add({
-        title,
-        description: desc,
-        category: cat,
-        status: "Reported",
-        gps,
-        image: imageUrl,
-        createdAt: new Date()
-      });
+document.getElementById("filter").addEventListener("change", e => {
+  renderIssues(e.target.value);
+});
 
-      document.getElementById("title").value = "";
-      document.getElementById("description").value = "";
-      document.getElementById("image").value = "";
-      document.getElementById("preview").style.display = "none";
-      previewImage = null;
-    }
-
-    function updateMap(lat, lng) {
-      if (!lat || !lng) return;
-      document.getElementById("mapFrame").src =
-        `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.02}%2C${lat-0.02}%2C${lng+0.02}%2C${lat+0.02}&layer=mapnik&marker=${lat}%2C${lng}`;
-    }
-
-    function openMap(lat, lng) {
-      window.open(`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=18/${lat}/${lng}`);
-    }
-
-    function renderIssues(filter="all") {
-      const wrap = document.getElementById("issues");
-      wrap.innerHTML = "";
-      db.collection("issues").orderBy("createdAt","desc").get().then(snapshot => {
-        snapshot.forEach(doc => {
-          const it = doc.data();
-          if (filter !== "all" && it.status !== filter) return;
-          const div = document.createElement("div");
-          div.className = "issue";
-          div.innerHTML = `
-            ${it.image ? `<img src="${it.image}">` : `<div style='width:100px;height:70px;background:#eee;border-radius:5px'></div>`}
-            <div style="flex:1">
-              <h4>${it.title}</h4>
-              <p>${it.description}</p>
-              <div><span class='status'>${it.status}</span> • ${it.category}</div>
-              <div class='actions'>
-                <button onclick="advanceStatus('${doc.id}','${it.status}')">Advance</button>
-                <button onclick="${it.gps ? `openMap(${it.gps.lat},${it.gps.lng})` : `alert('No GPS')`}">Map</button>
-                <button onclick="deleteIssue('${doc.id}')">Delete</button>
-              </div>
-            </div>
-          `;
-          wrap.appendChild(div);
-        });
-      });
-    }
-
-    async function advanceStatus(id,current) {
-      let newStatus = current;
-      if(current==="Reported") newStatus="Acknowledged";
-      else if(current==="Acknowledged") newStatus="In Progress";
-      else if(current==="In Progress") newStatus="Resolved";
-      await db.collection("issues").doc(id).update({status:newStatus});
-      renderIssues();
-    }
-
-    async function deleteIssue(id){
-      if(!confirm("Delete this report?")) return;
-      await db.collection("issues").doc(id).delete();
-      renderIssues();
-    }
-
-    // Live listener for updates
-    db.collection("issues").orderBy("createdAt","desc").onSnapshot(renderIssues);
-
-    document.getElementById("filter").addEventListener("change", e => {
-      renderIssues(e.target.value);
-    });
-
-    renderIssues();
-  </script>
+renderIssues();
+</script>
 </body>
 </html>
